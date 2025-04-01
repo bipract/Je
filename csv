@@ -1,18 +1,24 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 
-data = pd.read_csv("/content/Book1.csv")
+
+data = pd.read_csv('/content/Book1.csv')  
+
+data.columns = data.columns.str.strip()
 df = pd.DataFrame(data)
-df.set_index('Month', inplace=True)
+
+df.set_index('month', inplace=True)
+
 
 plt.figure(figsize=(10, 6))
-plt.plot(df.index, df['Product A'], label='Product A')
+plt.plot(df.index, df['product A'], label='Product A')
 plt.plot(df.index, df['Product B'], label='Product B')
 plt.plot(df.index, df['Product C'], label='Product C')
 plt.plot(df.index, df['Total Sales'], label='Total Sales', linestyle='--', marker='o')
 
+
 plt.title('Monthly Sales Data')
 plt.xlabel('Month')
 plt.ylabel('Sales')
-plt.legend()
+plt.legend()  # 
 plt.show()
