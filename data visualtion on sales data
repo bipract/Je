@@ -1,0 +1,34 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Create 2D array of table
+data=[['E001','M',34,123,'Normal',3500],
+      ['E002','F',25,100,'Normal',3400],
+      ['E003','F',32,99,'Overweight',3200],
+      ['E004','F',32,113,'Underweight',11500],
+      ['E005','M',25,120,'Normal',6500],
+      ['E006','M',31,123,'Normal',6500],
+      ['E007','F',26,114,'Normal',7500],
+      ['E008','M',27,99,'Overweight',9000],
+      ['E009','F',32,120,'Normal',6500],
+      ['E010','M',34,99,'Underweight',1500]
+     ]
+
+#dataframe created for above array
+df=pd.DataFrame(data,columns=['EmpId','Gender','Age','Sales','BMI','Income'])
+
+#plot Bar chart for numerical values and comparison will be shown between age, income and sales.
+df.plot.bar()
+plt.show()
+
+#plot between Age and Sales
+plt.bar(df['Age'],df['Sales'])
+plt.xlabel("Age")
+plt.ylabel("Sales")
+plt.show()
+
+#plot between Age and Income
+plt.bar(df['Age'],df['Income'])
+plt.xlabel("Age")
+plt.ylabel("Income")
+plt.show()
